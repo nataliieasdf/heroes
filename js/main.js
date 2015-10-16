@@ -1,17 +1,16 @@
-var curHero = $('img').hasClass('shown');
-var nextHero = $(curHero).next();
-
 $(document).ready(function(){
+	var $currHero = $('img').first().addClass('shown');
+	var $heroName = $currHero.attr('title');
 
-	var heroName = $('img').attr('title');
-
-	$('img:first-child').addClass('shown');
-	$('h1').text(heroName);
+	$('h1').text($heroName);
 
 	$('button.next').on('click', function(){
+		var $nextHero = $currHero.next();
+		if ( $currHero.hasClass('shown') )
 
-		$(curHero).removeClass('shown');
-		$(nextHero).addClass('shown');
+			$currHero.removeClass('shown');
+			// $nextHero.addClass('shown');
 
 	});
+
 });
