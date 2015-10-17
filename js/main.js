@@ -1,6 +1,9 @@
 $(document).ready(function(){
 
-	var $currHero = $('img:first-child').addClass('shown');
+	var $firstHero = $('img:first-child');
+	var $lastHero = $('img:last-child');
+
+	$firstHero.addClass('shown');
 
 	$('.name').text( $('.shown').attr('title') );
 	//there must be a better way to display name 
@@ -14,6 +17,12 @@ $(document).ready(function(){
 		var $heroName = $('img.shown').attr('title');
 		$('.name').text($heroName);
 
+		if ( $lastHero.hasClass('shown') ){
+			$lastHero.removeClass('shown');
+			$firstHero.addClass('shown');
+		}
+
+
 	});
 
 	$('button.prev').on('click', function(){
@@ -24,7 +33,10 @@ $(document).ready(function(){
 		var $heroName = $('img.shown').attr('title');
 		$('.name').text($heroName);
 
+
+
 	});
+
 
 
 });
