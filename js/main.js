@@ -6,19 +6,17 @@ $(document).ready(function(){
 	$firstHero.addClass('shown');
 
 	$('.name').text( $('.shown').attr('title') );
-	//there must be a better way to display name 
-	//and then change later??
 
 	$('button.next').on('click', function(){
-
-		$('.shown').next().addClass('shown');
-		$('.shown').prev().removeClass('shown');
-
-
 		if ( $lastHero.hasClass('shown') ){
 			$lastHero.removeClass('shown');
 			$firstHero.addClass('shown');
 		}
+
+
+		$('.shown').next().addClass('shown');
+		$('.shown').prev().removeClass('shown');
+
 
 		var $heroName = $('img.shown').attr('title');
 		$('.name').text($heroName);
@@ -30,10 +28,13 @@ $(document).ready(function(){
 		$('.shown').prev().addClass('shown');
 		$('.shown').next().removeClass('shown');
 
+		if ( $firstHero.hasClass('shown') ){
+			$firstHero.removeClass('shown');
+			$lastHero.addClass('shown');
+		}
+
 		var $heroName = $('img.shown').attr('title');
 		$('.name').text($heroName);
-
-
 
 	});
 
