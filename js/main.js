@@ -14,14 +14,14 @@ $(document).ready(function(){
 		$('.shown').next().addClass('shown');
 		$('.shown').prev().removeClass('shown');
 
-		var $heroName = $('img.shown').attr('title');
-		$('.name').text($heroName);
 
 		if ( $lastHero.hasClass('shown') ){
 			$lastHero.removeClass('shown');
 			$firstHero.addClass('shown');
 		}
 
+		var $heroName = $('img.shown').attr('title');
+		$('.name').text($heroName);
 
 	});
 
