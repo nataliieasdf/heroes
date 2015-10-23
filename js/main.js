@@ -13,11 +13,11 @@ $(document).ready(function(){
 			$firstHero.addClass('shown');
 		}
 
+		else{
+			$('.shown').removeClass('shown').next().addClass('shown');
 
-		$('.shown').next().addClass('shown');
-		$('.shown').prev().removeClass('shown');
-
-
+		}
+		
 		var $heroName = $('img.shown').attr('title');
 		$('.name').text($heroName);
 
@@ -25,15 +25,18 @@ $(document).ready(function(){
 
 	$('button.prev').on('click', function(){
 
-		$('.shown').prev().addClass('shown');
-		$('.shown').next().removeClass('shown');
-
 		if ( $firstHero.hasClass('shown') ){
 			$firstHero.removeClass('shown');
 			$lastHero.addClass('shown');
 		}
 
-		var $heroName = $('img.shown').attr('title');
+		else {
+
+			$('.shown').removeClass('shown').prev().addClass('shown');
+
+		}
+
+var $heroName = $('img.shown').attr('title');
 		$('.name').text($heroName);
 
 	});
